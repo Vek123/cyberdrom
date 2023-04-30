@@ -1,0 +1,63 @@
+{
+  "device_list": [
+    {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 30000,
+      "class_name": "DroneDevice"
+    },
+    {
+      "x": 5.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 30001,
+      "class_name": "DroneDevice"
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 30002,
+      "class_name": "DroneDevice"
+    },
+    {
+      "x": 10.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 40000,
+      "class_name": "CarDevice"
+    },
+    {
+      "x": 0.0,
+      "y": 10.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 40001,
+      "class_name": "CarDevice"
+    }
+  ],
+  "periphery_list": [
+    {
+      "x": 2.0,
+      "y": 2.0,
+      "z": 0.0,
+      "class_name": "Fire"
+    },
+    {
+      "x": 7.0,
+      "y": 0.0,
+      "z": 0.0,
+      "class_name": "QRCode"
+    }
+  ]
+}
