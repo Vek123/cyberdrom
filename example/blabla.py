@@ -20,7 +20,7 @@ def get_snake_trajectory(start_point, end_point, step_x, step_y):
     return trajectory
 
 
-points = get_snake_trajectory([1, 1], [5, 8], 4, 7)
+points = get_snake_trajectory([5, 1], [9, 8], 4, 7)
 for i in points:
     print(i)
 

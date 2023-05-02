@@ -1,0 +1,72 @@
+{
+  "device_list": [
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 8000,
+      "class_name": "DroneDevice"
+    },
+    {
+      "x": 1.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 8001,
+      "class_name": "DroneDevice"
+    },
+    {
+      "x": 8.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 8002,
+      "class_name": "CarDevice"
+    },
+    {
+      "x": 5.0,
+      "y": 0.0,
+      "z": 0.0,
+      "yaw": 0.0,
+      "hostname": "127.0.0.1",
+      "port": 8003,
+      "class_name": "CarDevice"
+    }
+  ],
+  "periphery_list": [
+    {
+      "x": 1.0,
+      "y": 5.0,
+      "z": 0.0,
+      "class_name": "Fire"
+    },
+    {
+      "x": 3.0,
+      "y": 8.0,
+      "z": 0.0,
+      "class_name": "Fire"
+    },
+    {
+      "x": 5.0,
+      "y": 5.0,
+      "z": 0.0,
+      "class_name": "Fire"
+    },
+    {
+      "x": 8.0,
+      "y": 2.0,
+      "z": 0.0,
+      "class_name": "Fire"
+    },
+    {
+      "x": 8.2,
+      "y": 5.6,
+      "z": 0.0,
+      "class_name": "Fire"
+    }
+  ]
+}

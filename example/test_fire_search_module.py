@@ -4,7 +4,7 @@ from edusdk.edubot_sdk import EdubotGCS
 import dataclasses
 import time
 import numpy as np
-import fire_search_module
+from fire_search_module import Searcher
 
 
 @dataclasses.dataclass
@@ -60,10 +60,10 @@ def get_snake_trajectory(start_point, end_point, step_x, step_y):
             curr_y += cord_step_y
         else:
             curr_y -= cord_step_y
-        if curr_y-1 == end_point[1]:
+        if curr_y - 1 == end_point[1]:
             curr_x += cord_step_x
             curr_y -= cord_step_y
-        elif curr_y+1 == start_point[1]:
+        elif curr_y + 1 == start_point[1]:
             curr_x += cord_step_x
             curr_y += cord_step_y
     trajectory.append(end_point)
@@ -74,15 +74,14 @@ def get_snake_trajectory(start_point, end_point, step_x, step_y):
 #     for j in range(RobotConfig.field_work[0][1], RobotConfig.field_work[1][1]+1):
 
 
-drone1 = Pioneer(pioneer_ip=RobotConfig.drone1_config["ip"], pioneer_mavlink_port=RobotConfig.drone1_config["port"],
-                 method=2)
-drone2 = Pioneer(pioneer_ip=RobotConfig.drone2_config["ip"], pioneer_mavlink_port=RobotConfig.drone2_config["port"],
-                 method=2)
+drone1 = Searcher(pioneer_ip=RobotConfig.drone1_config["ip"], pioneer_mavlink_port=RobotConfig.drone1_config["port"],
+                  method=2)
+drone2 = Searcher(pioneer_ip=RobotConfig.drone2_config["ip"], pioneer_mavlink_port=RobotConfig.drone2_config["port"],
+                  method=2)
 robot1 = EdubotGCS(ip=RobotConfig.robot2_config["ip"], mavlink_port=RobotConfig.robot2_config["port"],
                    connection_method="udpout")
 robot2 = EdubotGCS(ip=RobotConfig.robot2_config["ip"], mavlink_port=RobotConfig.robot2_config["port"],
                    connection_method="udpout")
-
 points1 = get_snake_trajectory([1, 1], [5, 8], 4, 7)
 points2 = get_snake_trajectory([5, 1], [9, 8], 4, 7)
 
@@ -92,12 +91,12 @@ fire_points2 = None
 
 def tr1():
     global fire_points1
-    fire_points1 = fire_search_module.search(drone1, RobotConfig.drone1_config["cords"], points1, 3)
+    fire_points1 = drone1.search(points1, 2, RobotConfig.drone1_config["cords"], stop_cord=[4, 1]) #fire_search_module.search(drone1, RobotConfig.drone1_config["cords"], points1, 3)
 
 
 def tr2():
     global fire_points2
-    fire_points2 = fire_search_module.search(drone2, RobotConfig.drone2_config["cords"], points2, 3)
+    fire_points2 = drone2.search(points2, 3, RobotConfig.drone2_config["cords"])
 
 
 thread1 = threading.Thread(target=tr1, daemon=True)
@@ -106,9 +105,3 @@ thread1.start()
 thread2.start()
 thread1.join()
 thread2.join()
-
-fire_points = []
-for i in fire_points1:
-    fire_points.append(i)
-print(fire_points)
-
