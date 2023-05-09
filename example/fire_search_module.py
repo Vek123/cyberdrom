@@ -45,7 +45,7 @@ class Searcher(Pioneer):
                 self.fire_detection()  # мигание светодиодом
                 time.sleep(5)  # пауза 5 сек
                 # print(f"Temperature: {curr_temp}, drone position: {curr_position}") # вывод позиции дрона и
-                # измеренной температуры 
+                # измеренной температуры
                 interest_points.append([curr_position[0], curr_position[1]])  # Добавление точки интереса
                 # с текущей позицией дрона [x, y]
         fire_points = self.get_fire_points(interest_points,
